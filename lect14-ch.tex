@@ -1,0 +1,211 @@
+% Лекции Сергея Борисовича Стечкина
+% Внесены исправления В.А. Юдина, версия 27.01.2009
+% Внесены исправления Н.И. Черныха, версия 19.07.2009
+% Внесена грамматическая и ТеХ-правка М.Дейкаловой, версия 05.08.09
+
+\chapter{Теорема Джексона}
+
+\section{Приближение в $L_2(a,b)$}
+
+%Пусть $X$~-- сепарабельное банахово пространство, $x_1,x_2,\ldots,x_n,\ldots$~--
+%бесконечная система элементов из $X$,~ $L_n$~--
+%подпространство, натянутое на $n$ первых элементов $\{x_1,\ldots,x_n\}$.
+%Для любого $x\in X$ рассмотрим {наилучшее приближение}
+%$$
+%E_n(x)=E(x,L_n)_X\qquad (n=1,2,\ldots)
+%$$
+%{и отображение}
+%$$
+%X\longrightarrow \{ E_n(x)\}.
+%$$
+
+Полагаем дальше $X=L^2_{2\pi},$ $E_n(x)_{L^2}$ -- наилучшее
+приближение в $L^2_{2\pi}$ функции $x(t)\in L^2_{2\pi}$
+подпространством ${\cal T}_n$ (размерности $2n+1$)
+тригонометрических полиномов $t_n(t)$ по системе
+$$
+1,\cos t,\sin t,\cos 2t,\sin 2t,\ldots.
+$$
+Эта система полна в {$L^2_{2\pi}$}, т.\,е.
+$$
+\forall\ x:\qquad E_n(x) \longrightarrow 0\qquad (n\to \infty).
+$$
+Рассмотрим для функции $x\in L^2_{2\pi}$ ее ряд Фурье
+$$
+x(t)\sim \frac{a_0}{2}+\sum\limits_{k=1}^{\infty} {(a_k \cos kt+b_k\sin kt)}
+$$
+и пусть
+$$
+s_n(t)\sim \frac{a_0}{2}+\sum\limits_{k=1}^{n} {(a_k \cos kt+b_k\sin kt)}.
+$$
+Тогда
+$$
+E_n^2(x)_{L^2}=\|x(t)-s_n(t)\|_{{L^2}}^2=\sum\limits_{k=n+1}^{\infty}(a_k^2+b_k^2)
+$$
+(по равенству Парсеваля).
+
+\section{Неравенство Бернштейна}
+
+Для любого тригонометрического полинома порядка $n$ выполняется неравенство
+$$\|t_n'\|_{{L^2}}\le n\|t_n\|_{{L^2}}.$$
+
+
+Действительно,
+$$
+\|t_n'\|_{{L^2}}^2 ={\sum\limits_{k=1}^n k^2}(a_k^2+b_k^2),
+$$
+$$
+(n\|t_n\|_{{L^2}})^2=n^2\|t_n\|_{{L^2}}^2=n^2\left(
+\frac{a_0^2}{2}+\sum\limits_{k=1}^n (a_k^2+b_k^2)\right).
+$$
+Отсюда ясно, что
+$$
+\|t'\|_{{L^2}}^2\le n^2\|t_n\|^2_{{L^2}}.
+$$
+
+\section{Модуль колебания, модуль непрерывности}
+
+Пусть $\Delta_h x(t)=x\left( t+\dfrac{h}{2}\right)-x\left( t-\dfrac{h}{2}\right).$ Тогда величина
+$$
+\|\Delta_h x(t)\|_{{L^2}}=\ae(h,x)
+$$
+называется модулем колебания функции с шагом $h$ (в $L^2_{2\pi}$), а
+величина
+$$
+\sup_{|h|\le \delta} \ae(h,x)=\omega(\delta,x)_{{L^2}}
+$$
+-- модулем непрерывности функции (в $L^2_{2\pi}$).
+
+\begin{Remark} %%%Замечание.
+Модуль непрерывности не может убывать
+слишком быстро. Если $\ae(h,x)=o(h)$ при $h\to 0,$ т.\,е.
+$$
+\left\| \frac{\Delta_h x}{h}\right\|_{{L^2}} \to 0\qquad (h\to 0),
+$$
+то отсюда вытекает, что производная в метрике $L_2$
+равна нулю почти всюду, т.\,е. \linebreak $x=\Const.$
+\end{Remark}
+
+Обозначим
+$$
+{\Delta_h^k x(t)=\Delta_h^{k-1}(\Delta_h x(t)),}
+$$
+$$
+\left\| \Delta_h^k(x,t)\right\|_{{L^2}}=\ae_k(h,x).
+$$
+Тогда
+$$
+\sup_{|h|\le \delta} \ae_k(h,x)=\omega_k(\delta,x)_{{L^2}}
+$$
+называется модулем непрерывности $k$-го порядка.
+
+\section{Теорема Джексона в {$L^2_{2\pi}$}}
+
+\begin{teo}[неравенство Джексона]
+Для каждой функции $x(t)\in L^2_{2\pi}$
+
+$1)$ $E_n(x)_{{L^2}}\le C\omega\left( \dfrac{\pi}{n},x\right)_{{L^2}};$
+
+$2)$ $E_n(x)_{{L^2}}\le C_k \omega_k \left( \dfrac{\pi}{n},x\right)_{{L^2}},$~ $k\in \bN;$
+
+\noindent {\it где} $C$ {\it и} $C_k$ -- {\it абсолютные константы.}
+\end{teo}
+
+\begin{proof}%%%   Доказательство.
+Имеем
+$$
+E_n^2(x)_{L^2}=\sum\limits_{k=n+1}^{\infty}(a_k^2+b_k^2),
+$$
+$$
+{\Delta_h x(t)\sim\sum\limits_{k=1}^\infty\left(2\sin \frac{kh}{2}\right)(-a_k\sin kt+ b_k\cos kt),}
+$$
+{откуда}
+$$
+\ae^2(h,x)=4 \sum\limits_{k=1}^{\infty}\sin^2 k\frac{h}{2} (a_k^2+b_k^2).
+$$
+Но
+$$
+\frac{1}{\delta_n}\int_0^{\delta_n} \sin^2 k\frac{h}{2}\ {dh} \ge c>0\qquad
+\left( k\ge n,\ \delta_n=\frac{\pi}{n}\right),
+$$
+поэтому
+$$
+\frac{1}{\delta_n}\int_0^{\delta_n} \sum\limits_{k=1}^{\infty}
+\sin^2 k\frac{h}{2}(a_k^2+b_k^2)\ dh \ge
+c \sum\limits_{k=n+1}^{\infty} (a_k^2+b_k^2),
+$$
+откуда
+$$
+\sum\limits_{k=n+1}^{\infty} (a_k^2+b_k^2)\le c_1 \frac{1}{\delta_n}
+\int_0^{\delta_n} \sum\limits_{k=1}^{\infty}
+\sin^2 k\frac{h}{2}(a_k^2+b_k^2)\ dh=
+$$
+$$
+=c_2\frac{1}{\delta_n} \int_0^{\delta_n}\ae^2 (h,x)\ dh \le
+c_2\omega(\delta_n,x)_{{L^2}}.
+$$
+\end{proof}
+
+Доказательство второго утверждения теоремы аналогично, {если учесть, что}
+$$
+{\Delta_h^k x(t)\sim\sum_{l=1}^\infty\left(2\sin \frac{lh}{2}\right)^k
+\left(a_l\cos \left(lx+\frac{k\pi}{2}\right)+ b_l\sin \left(lx+\frac{k\pi}{2}\right)\right).}
+$$
+
+\begin{Corollary}
+Пусть функция $x$ абсолютно непрерывна и ее производная принадлежит {$L^2_{2\pi}.$} В этом случае
+$$
+\left\| \frac{\Delta_h x(t)}{h}\right\|_{{L^2}}\le K
+$$
+и тогда $E_n(x)=O\left( \dfrac{1}{n}\right),$ так как $\ae(h,x)\le Kh$ и, следовательно, $\omega(\delta,x)\le Kh.$
+\end{Corollary}
+
+\section{Обратная теорема}
+
+\begin{teo} Для каждого $n\in\mathbb N$ и любой функции $x$ из $L^2_{2\pi}$
+справедливо неравенство
+$$
+\omega^2\left( \frac{\pi}{n},x\right)_{{L^2}}\le \frac{C}{n^2}
+\sum\limits_{{k=1}}^nkE_{{k-1}}^2(x)_{L_2},
+$$
+где $C=2\pi^2$.
+\end{teo}
+
+\begin{proof}
+Разобьем $\|\Delta_h x\|^2$ на два слагаемых
+$$\|\Delta_hx(t)\|_{L^2}^2 =
+\sum\limits_{k=1}^{n-1}\left(2\sin\frac{kh}{2}\right)^2(a_k^2+b_k^2) +
+\sum\limits_{k=n}^\infty\left(2\sin\frac{kh}{2}\right)^2(a_k^2+b_k^2) = I_1 + I_2.
+$$
+Оценим эти слагаемые, используя неравенства $|\sin x|\le|x|$,~ $|\sin x|\le1$,~
+$x\in\mathbb R$. Имеем
+$$I_1\le h^2\sum\limits_{k=1}^{n-1}k^2(a_k^2+b_k^2),
+$$
+$$
+I_2\le 4\sum\limits_{k=n}^\infty (a_k^2+b_k^2),$$
+откуда для
+$$
+\omega^2\left(\frac{\pi}{n},x\right)_{{L^2}} =
+\sup_{|h|\le\frac{\pi}{n}}\|\Delta_hx\|^2_{{L^2}}
+$$
+имеем
+$$
+\omega^2\left(\frac{\pi}{n},x\right)_{{L^2}} \le \frac{\pi^2}{n^2}
+\sum\limits_{k=1}^{n-1}k^2(a_k^2+b_k^2)+4E_{n-1}^2(x).
+$$
+Применяя
+преобразование Абеля, получим
+$$
+\sum\limits_{k=1}^{n-1}k^2(a_k^2+b_k^2)\le
+\sum\limits_{k=1}^{n-1}(2k-1)E_{k-1}^2(x)
+{-(n-1)^2E_{n-1}^2(x)}.
+$$
+Следовательно,
+$$
+\omega^2\left(\frac{\pi}{n},x\right)_{{L^2}}\le
+\frac{\pi^2}{n^2}\sum\limits_{k=1}^{n-1}(2k-1)E_{k-1}^2(x)
+{-\frac{\pi^2}{n^2}(n-1)^2E_{n-1}^2(x)}+4E_{n-1}^2(x),
+$$
+{откуда легко выводится утверждение теоремы.}
+Теорема доказана.
+\end{proof}

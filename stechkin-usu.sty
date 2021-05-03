@@ -1,0 +1,176 @@
+% Стилевой файл для конспекта лекций С.Б. Стечина
+% Версия 05.08.2009 (УрГУ)
+
+\usepackage[cp866]{inputenc}           % Перешли на кодировку Windows!!!
+\usepackage[english, russian]{babel}    % Переносы через Babel (обязательно!)
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[dvips]{color}
+\usepackage{colordvi}
+\usepackage{graphicx}
+\usepackage{ifpdf}
+\ifpdf \DeclareGraphicsRule{*}{mps}{*}{} \fi
+\usepackage{srcltx}
+
+ \newcounter{ris}[chapter]                                  % Счетчик для нумерации рисунков
+ \renewcommand{\theris}{\arabic{chapter}.\arabic{ris}}
+
+ \newcommand{\yy}[1]{\fcolorbox{white}{yellow}{#1}}   % Пометка текста желтым маркером
+ \newcommand{\mm}[1]{\fcolorbox{white}{cyan}{#1}}     % Пометка текста бирюзовым маркером
+ \newcommand{\mg}{\NavyBlue}                          % Пометка текста голубым цветом
+
+ \newcommand{\ds}{\displaystyle}
+
+
+
+
+
+
+
+
+
+%          Изменение встроенной команды для оформления заголовков разделов
+%          с точкой между номером и текстом и абзацным отступом после
+%
+\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+     \let\@svsec\@empty\else
+     \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname.\hskip 1em}\fi
+     \@tempskipa #5\relax
+      \ifdim \@tempskipa>\z@
+        \begingroup #6\relax
+          \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}%
+        \endgroup
+       \csname #1mark\endcsname{#7}\addcontentsline
+         {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                      \protect\numberline{\csname the#1\endcsname}\fi
+                    #7}\else
+        \def\@svsechd{#6\hskip #3\relax  %% \relax added 2 May 90
+                   \@svsec #8\csname #1mark\endcsname
+                      {#7}\addcontentsline
+                           {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                             \protect\numberline{\csname the#1\endcsname}\fi
+                       #7}}\fi
+     \@xsect{#5}\noindent\vspace{-2ex}}
+\def\@biblabel#1{#1.}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\proofname}{\par{Д\;о\;к\;а\;з\;а\;т\;е\;л\;ь\;с\;т\;в\;о}.\hspace{1em}}
+\def\Case{{С\;л\;у\;ч\;а\;й}\hspace{1em}}
+
+\theoremstyle{plain}
+    \newtheorem{teo}{\rm \ \ \ \,\mbox{Т\;е\;о\;р\;е\;м\;а~}}[chapter]
+    \newtheorem{lemma}{\rm \ \ \ \,\mbox{Л\;е\;м\;м\;а~}}[chapter]
+    \newtheorem{Proposition}{\rm \ \ \ \,\mbox{У\;т\;в\;е\;р\;ж\;д\;е\;н\;и\;е~}}[chapter]
+    \newtheorem{Axiom}{\rm \ \ \ \,\mbox{А\;к\;с\;и\;о\;м\;а~}}[chapter]
+    \newtheorem{corollary}{\rm \ \ \ \,\mbox{С\;л\;е\;д\;с\;т\;в\;и\;е~}}
+    \newtheorem*{Corollary}{\rm \ \ \ \,\mbox{С\;л\;е\;д\;с\;т\;в\;и\;е}}
+
+\theoremstyle{definition}
+    \newtheorem*{defi}{\rm \ \ \ \,\mbox{О\;п\;р\;е\;д\;е\;л\;е\;н\;и\;е}}
+    \newtheorem{Example}{\rm \ \ \ \,\mbox{П\;р\;и\;м\;е\;р~}}[chapter]
+
+\theoremstyle{remark}
+    \newtheorem{remark}{\rm \ \ \ \,\mbox{З\;а\;м\;е\;ч\;а\;н\;и\;е}}[chapter]
+    \newtheorem*{Remark}{\rm \ \ \ \,\mbox{З\;а\;м\;е\;ч\;а\;н\;и\;е}}
+    \newtheorem*{task}{{\rm \ \ \ \,\mbox{З\;а\;д\;а\;ч\;а}}}
+    \newtheorem*{ex}{{\rm \ \ \ \,\mbox{У\;п\;р\;а\;ж\;н\;е\;н\;и\;е}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \topmargin=-1.5cm
+ \oddsidemargin=0.25cm
+ \textwidth=16.5cm
+ \textheight=23.5cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pnl}{\wr\!\!\wr\!}     % Команды для обозначения полунормы
+\newcommand{\pnr}{\!\wr\!\!\wr}     % Пример: $\pnl f \pnr$
+
+\DeclareMathOperator{\card}{card}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Далее команды остались от старого стилевого файла
+%   Возможно, часть из них не используется
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\{{\protect\lbrace}
+\def\}{\protect\rbrace}
+
+\def\expan#1{{\bf #1}}
+\def\ф(#1.#2){$(#1.#2)$}
+\def\neqv{\not\equiv}
+\def\l{\left(}
+\def\r{\right)}
+\def\ae{\varkappa}
+\def\eps{\varepsilon}
+\def\ro{\varrho}
+\let\le\leqslant
+\let\ge\geqslant
+
+\let\epsilon\varepsilon
+\let\phi\varphi
+\let\leq\le
+\let\geq\ge
+\newcommand{\Cal}[1]{\mathcal{#1}}
+\newcommand{\G}[1]{\mathfrak{#1}}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bK}{\mathbb{K}}
+\newcommand{\Const}{\rm const}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\inter}{{\rm int \, }}
+\newcommand{\conv}{{\rm conv\,}}
+\newcommand{\sign}{{\rm sign \, }}
+\newcommand{\mes}{{\rm mes \, }}
+%%%%%%%%%%%%%%%%%%%%%% \newcommand{\tg}{{\rm tg \, }}
+%%%%%%%%%%%%%%%%%%%%%% \newcommand{\ctg}{{\rm ctg \, }}
+\newcommand{\Bint}{\displaystyle \int}
+\newcommand{\I}{{\rm I }}
+\newcommand{\II}{{\rm II }}
+\newcommand{\III}{{\rm III }}
+\newcommand{\IV}{{\rm IV }}
+
+\newcommand{\x}{{\boldsymbol x }}
+\newcommand{\y}{{\boldsymbol y }}
+\renewcommand{\u}{{\boldsymbol u }}
+\renewcommand{\v}{{\boldsymbol v }}
+%%%%%%%%%%%%%%%%%%%%%% \newcommand{\f}{{\boldsymbol f }}
+%%%%%%%%%%%%%%%%%%%%%% \newcommand{\U}{{\mathcal U }}
+\newcommand{\0}{{\boldsymbol 0 }}
+\renewcommand{\a}{{\boldsymbol a }}
+\renewcommand{\b}{{\boldsymbol b }}
+\newcommand{\p}{{\boldsymbol p }}
+\newcommand{\q}{{\boldsymbol q }}
+\newcommand{\g}{{\boldsymbol g }}
+\newcommand{\e}{{\epsilon }}
+\newcommand{\ppsi}{{\boldsymbol \psi }}
+\newcommand{\z}{{\boldsymbol z }}
+\newcommand{\m}{{\boldsymbol m }}
+\newcommand{\h}{{\boldsymbol h }}
+
+\newcommand{\cD}{{\cal D}}
+
+\newcommand{\Deltax}{{\boldsymbol \Delta }{\boldsymbol x }}
+
+\let\<\langle
+\let\>\rangle
+\let\oslash\emptyset
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{Список литературы}
+
+\newtheorem{feat}{}
+\def\proof{\par{Д\;о\;к\;а\;з\;а\;т\;е\;л\;ь\;с\;т\;в\;о}.\hspace{1em}}
+\def\c{\mathop{\rm c}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
